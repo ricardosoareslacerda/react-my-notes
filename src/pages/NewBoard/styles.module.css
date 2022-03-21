@@ -5,6 +5,7 @@
   height: 100vh;
 }
 
-#main p {
-  text-align: center;
+#main a {
+  margin: 0 auto;
+  font-size: auto;
 }

@@ -16,20 +16,31 @@ export function Login() {
     nav("home");
   }
 
+  function handleNewAccountPage() {
+    nav("newAccount");
+  }
+
   return (
     <main id={styles.main}>
-      <Form>
+      <Form title="Login">
         <Input size="large" placeholder="Email" />
         <Input.Password
           size="large"
-          placeholder="Senha"
+          placeholder="Password"
           iconRender={(visible) =>
             visible ? <EyeTwoTone /> : <EyeInvisibleOutlined />
           }
         />
         <Button type="primary" onClick={handleHomePage}>
-          Entrar
+          Login
         </Button>
+
+        <p>
+          Need an account?
+          <Button type="link" onClick={handleNewAccountPage}>
+            Sign up
+          </Button>
+        </p>
       </Form>
     </main>
   );
