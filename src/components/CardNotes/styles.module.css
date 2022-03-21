@@ -1,0 +1,19 @@
+.card {
+  width: 180px;
+  background: peru;
+
+  padding: 10px;
+}
+
+.card h2 {
+  text-align: center;
+}
+
+.card hr {
+  background: #000;
+  height: 1px;
+}
+
+.card p {
+  font-size: 0.9rem;
+}

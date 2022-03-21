@@ -4,6 +4,7 @@ import styles from "./styles.module.css";
 
 import { UserAddOutlined } from "@ant-design/icons";
 import { Button, Input } from "antd";
+import { ButtonBack } from "../../components/ButtonBack";
 
 export function NewAccount() {
   const nav = useNavigate();
@@ -14,13 +15,17 @@ export function NewAccount() {
 
   return (
     <main id={styles.main}>
+      <ButtonBack nav="/"></ButtonBack>
       <Form title="Account">
         <Input size="large" placeholder="Name" />
         <Input size="large" placeholder="Email" />
         <Input size="large" placeholder="Password" />
-        <Button type="primary" onClick={handleLoginPage}>
+        <Button
+          icon={<UserAddOutlined />}
+          type="primary"
+          onClick={handleLoginPage}
+        >
           Create
-          <UserAddOutlined />
         </Button>
       </Form>
     </main>

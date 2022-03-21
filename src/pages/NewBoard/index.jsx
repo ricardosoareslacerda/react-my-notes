@@ -4,6 +4,7 @@ import styles from "./styles.module.css";
 
 import { FileAddOutlined } from "@ant-design/icons";
 import { Button, Input } from "antd";
+import { ButtonBack } from "../../components/ButtonBack";
 
 export function NewBoard() {
   const nav = useNavigate();
@@ -14,11 +15,15 @@ export function NewBoard() {
 
   return (
     <main id={styles.main}>
+      <ButtonBack nav="/home"></ButtonBack>
       <Form title="Board">
         <Input size="large" placeholder="Title ex: Board One" />
-        <Button type="primary" onClick={handleHomePage}>
+        <Button
+          icon={<FileAddOutlined />}
+          type="primary"
+          onClick={handleHomePage}
+        >
           Create
-          <FileAddOutlined />
         </Button>
       </Form>
     </main>
