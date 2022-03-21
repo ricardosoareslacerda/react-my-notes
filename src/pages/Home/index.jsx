@@ -11,7 +11,9 @@ export function Home() {
     nav("/");
   }
 
-  function handleOnClick() {}
+  function handleNewBoardPage() {
+    nav("/newBoard");
+  }
 
   return (
     <div id={styles.home}>
@@ -40,7 +42,7 @@ export function Home() {
             shape="circle"
             icon={<FileAddFilled />}
             size="large"
-            onClick={handleOnClick}
+            onClick={handleNewBoardPage}
           />
         </Tooltip>
       </div>
