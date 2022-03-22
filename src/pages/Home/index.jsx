@@ -3,9 +3,17 @@ import { useNavigate } from "react-router-dom";
 import { Board } from "../../components/Board";
 import styles from "./styles.module.css";
 import { LogoutOutlined, FileAddFilled, UserOutlined } from "@ant-design/icons";
+import request from "../../services/request";
+import { useEffect, useState } from "react";
 
 export function Home() {
   const nav = useNavigate();
+  const [boards, setBoards] = useState([]);
+  const [user, setUser] = useState(request.User());
+  useEffect(() => {
+    getBoards()
+  }, [])
+  
 
   function handleLoginPage() {
     nav("/");
@@ -14,6 +22,13 @@ export function Home() {
   function handleNewBoardPage() {
     nav("/newBoard");
   }
+
+  function getBoards() {
+    request.Boards().then(({data}) => {
+      setBoards(data)
+    })
+  }
+
 
   return (
     <div id={styles.home}>
@@ -29,9 +44,9 @@ export function Home() {
         <div id={styles.user_section}>
           <h1>
             <UserOutlined />
-            user.name
+            {user.user.name}
           </h1>
-          <h3>user.email</h3>
+          <h3>{user.user.email}</h3>
         </div>
       </header>
 
@@ -48,11 +63,7 @@ export function Home() {
       </div>
 
       <main id={styles.board_list}>
-        <Board name="Board 1" />
-        <Board name="Board 2" />
-        <Board name="Board 3" />
-        <Board name="Board 4" />
-        <Board name="Board 5" />
+        {boards.map((board) => <Board board={board} key={board.id} />)}
       </main>
     </div>
   );
